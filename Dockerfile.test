@@ -1,0 +1,10 @@
+FROM python:3.8-slim
+WORKDIR /app
+COPY ./app /app
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 8000
+# remove the comment and comment out CMD ["pytest"]  to run app and run intigration test(endpoint tests).
+# to run unit tests run it as it is.
+# CMD [ "python", "main.py" ]
+CMD ["pytest"]
