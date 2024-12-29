@@ -17,20 +17,15 @@ I used Python FastAPI and Postgresql to build my app. I used sqlalchemy for data
         ```bash
         docker-compose up
         ```
-        or
-
-        ```bash
-        docker compose up
-        ```
     6. Now you can check the output of pytest on your console.
     7. Unit test code is in the /app/test directory.
-    8. After checking run:
+    8. After checking run for clean up:
         ```bash
         docker-compose down
         ```
-        or
+    9. Now delete the image with:
         ```bash
-        docker compose down
+        docker rmi zania-test_app
         ```
 2. #### Run intigration tests:
     1. Every thing same as unit test except point  **3**. Now just uncomment the CMD["python","main.py"] and comment the CMD["pytest"] in  *Dockerfile.test*
@@ -38,11 +33,6 @@ I used Python FastAPI and Postgresql to build my app. I used sqlalchemy for data
     3. Now run:
         ```bash
         docker-compose up
-        ```
-        or
-
-        ```bash
-        docker compose up
         ```
         Now our Server is running on port 8000. you can go to **http://localhost:8000/docs** in your browser and see all the apis 
 
@@ -60,9 +50,9 @@ I used Python FastAPI and Postgresql to build my app. I used sqlalchemy for data
         ```bash
         docker-compose down
         ```
-        or
+    7. Delete the image.
         ```bash
-        docker compose down
+            docker rmi zania-test_app
         ```
     
 ### Deployment
@@ -71,7 +61,7 @@ I used Python FastAPI and Postgresql to build my app. I used sqlalchemy for data
     ```bash
     docker-compose up
     ```
-We can Nginx (as a reverse proxy or as a load balancer) and Gunicorn (as web server) for efficient deployment.
+We can use Nginx (as a reverse proxy or as a load balancer) and Gunicorn (as web server) for efficient deployment.
 
 
 
